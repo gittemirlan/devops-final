@@ -20,6 +20,9 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose version
 
+      - name: go to project
+        run: cd python-metrics-app
+
       - name: Build Docker images
         run: docker-compose build
 
