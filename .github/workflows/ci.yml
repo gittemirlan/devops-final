@@ -20,19 +20,20 @@ jobs:
           sudo chmod +x /usr/local/bin/docker-compose
           docker-compose version
 
-      - name: go to project
-        run: cd python-metrics-app
-
       - name: check directory
         run: ls -l
+        working-directory: python-metrics-app
 
       - name: Build Docker images
         run: docker-compose build
+        working-directory: python-metrics-app
 
       - name: Run containers
         run: docker-compose up -d
+        working-directory: python-metrics-app
 
       - name: Wait and Test
         run: |
           sleep 15
           curl http://localhost:5000
+        working-directory: python-metrics-app
