@@ -23,6 +23,9 @@ jobs:
       - name: go to project
         run: cd python-metrics-app
 
+      - name: check directory
+        run: ls -l
+
       - name: Build Docker images
         run: docker-compose build
 
